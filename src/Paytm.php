@@ -32,15 +32,6 @@ class Paytm extends PaytmFactory{
 		$this->merchantKey = Config::get('paytm.connections.'.$env.'.merchant_key');
 		$this->merchantMid = Config::get('paytm.connections.'.$env.'.merchant_mid');	
 	}
-	public function getTxnStatus($requestParamList) {
-		return parent::callAPI($txnStatus, $requestParamList);
-	}
-
-	function initiateTxnRefund($requestParamList) {
-	$CHECKSUM = getChecksumFromArray($requestParamList,PAYTM_MERCHANT_KEY,0);
-	$requestParamList["CHECKSUM"] = $CHECKSUM;
-	return self::callAPI(PAYTM_REFUND_URL, $requestParamList);
-	}
 
 	public function pay($requestParamList) {
 
@@ -55,15 +46,45 @@ class Paytm extends PaytmFactory{
 		return parent::payNow($this->txnUrl, $requestParamList,$checkSum);
 	}
 
-	public function callback()
+	public function verifyPayment($requestParamList)
 	{
-		return 'Awesome';
-		# code...
+		$verfication = TRUE;
+		$response = array();
+
+		$verfication = parent::verifychecksum_e($requestParamList,$this->merchantKey,$requestParamList['CHECKSUMHASH']);
+
+		if($verfication == TRUE){
+
+			if($requestParamList["STATUS"]=="TXN_SUCCESS"){
+				return $response = array('status' => 'success','data' => $requestParamList);
+			}else{
+				return $response = array('status' => 'error','data' => null);
+			}
+
+		}else{
+				return $response = array('status' => 'error','data' => null,'message' => 'Checksum mismatched.' );
+		}
+
 	}
 
+	public function transactionStatus($orderID) {
+		$requestParamList = array("MID" => $this->merchantMid , "ORDERID" => $orderID);  
+		return parent::callAPI($this->txnStatus, $requestParamList);
+	}
 
+	public function initiateTransactionRefund($orderID,$amount,$txnType='REFUND') {
+		$requestParamList = array();
 
+		$tranStatus = self::transactionStatus($orderID);
+		$requestParamList['MID'] = $this->merchantMid;	
+		$requestParamList["TXNID"] = $tranStatus['TXNID'];
+		$requestParamList["ORDERID"] = $orderID;
+		$requestParamList["REFUNDAMOUNT"] = $amount;
+		$requestParamList["TXNTYPE"] = $txnType; //REFUND || CANCEL
 
-
-
+		$CHECKSUM = parent::getChecksumFromArray($requestParamList,$this->merchantKey,0);
+		$requestParamList["CHECKSUM"] = $CHECKSUM;
+		
+		return self::callAPI($this->refund , $requestParamList);
+	}
 }
