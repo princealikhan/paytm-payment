@@ -116,11 +116,11 @@ class PaytmFactory
         $website_hash = hash("sha256", $finalString);
         $website_hash .= $salt;
 
-        $validFlag = "FALSE";
+        $validFlag = FALSE;
         if ($website_hash == $paytm_hash) {
-            $validFlag = "TRUE";
+            $validFlag = TRUE;
         } else {
-            $validFlag = "FALSE";
+            $validFlag = FALSE;
         }
         return $validFlag;
     }
