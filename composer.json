@@ -1,0 +1,13 @@
+{
+    "name": "princealikhan/paytm-payment",
+    "description": "Payment Integration with Paytm.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Prince Ali Khan",
+            "email": "princealikhan08@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
