@@ -9,5 +9,14 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+            "php": ">=5.5.9",
+            "illuminate/contracts": "5.0.*|5.1.*",
+            "illuminate/support": "5.0.*|5.1.*"
+        },
+    "autoload": {
+        "psr-4": {
+            "Princealikhan\\PaytmPayment\\": "src/"
+        }
+    }    
 }
