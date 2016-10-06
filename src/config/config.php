@@ -2,36 +2,43 @@
     return array(
         /*
         |--------------------------------------------------------------------------
-        | Paytm Payment Integrations
+        | Paytm Default Gateway
         |--------------------------------------------------------------------------
-        | Sandbox,Live
+        | "sandbox" is for testing purpose
+        | "live" is for production 
         |
         */
-        'environment'        => 'sandbox',
-        'website'            => 'http://www.local.dev',
+        'default'       => 'sandbox',
 
         /*
         |--------------------------------------------------------------------------
-        | Connection Type
+        | Paytm Aditional settings
         |--------------------------------------------------------------------------
         |
-        |
+        */
+        'industry_type' => 'Retail',
+        'channel'       => 'WEB',
+        'order_prefix'  => 'EDU',
+        'website'       => 'your-website',
+
+        /*
+        |--------------------------------------------------------------------------
+        | Paytm Connection Credentials
+        |--------------------------------------------------------------------------
+        | sandbox,live
         |
         */
         'connections' => [
 
             'sandbox' => [
-                'merchant_key'  => 'asldkfjsldkj',
-                'merchant_mid'  => 'asldkfjsldkj',
+                'merchant_key'  => 'your-merchant-key',
+                'merchant_mid'  => 'your-merchant-id',
             ],
 
             'live' => [
-                'merchant_key'  => 'asldkfjsldkj',
-                'merchant_mid' => 'asldkfjsldkj',
+                'merchant_key'  => 'your-merchant-key',
+                'merchant_mid'  => 'your-merchant-id',
             ]
-
 
         ],
     );
-
-?>
