@@ -2,6 +2,11 @@
     "name": "princealikhan/paytm-payment",
     "description": "Payment Integration with Paytm.",
     "license": "MIT",
+    "keywords": ["paytm", "laravel"],
+    "support": {
+        "issues": "https://github.com/princealikhan/paytm-payment/issues",
+        "source": "https://github.com/princealikhan/paytm-payment"
+    },
     "authors": [
         {
             "name": "Prince Ali Khan",
