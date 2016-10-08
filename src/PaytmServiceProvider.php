@@ -14,6 +14,7 @@ class PaytmServiceProvider extends ServiceProvider {
 		// Publish Configuration File to base Path.
         $this->publishes([
             __DIR__.'/config/config.php' => base_path('config/paytm.php'),
+            __DIR__.'/view' => base_path('resources/views/vendor/payment'),
         ]);
 	}
 
