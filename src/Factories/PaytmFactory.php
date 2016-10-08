@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Config;
 class PaytmFactory
 {
     protected function payNow($URL,$requestParamList,$checkSum){
-        return view('payment.pgRedirect',compact("URL","requestParamList","checkSum"));
+        return view('vendor.paytm-payment/redirect',compact("URL","requestParamList","checkSum"));
     }
 
     protected function callAPI($apiURL, $requestParamList) {
