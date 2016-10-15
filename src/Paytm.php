@@ -19,9 +19,9 @@ class Paytm extends PaytmFactory{
 
 		}else{
 
-			$refund 	= 'https://secure.paytm.in/oltp/HANDLER_INTERNAL/REFUND';
-			$txnStatus 	= 'https://secure.paytm.in/oltp/HANDLER_INTERNAL/TXNSTATUS';
-			$txnUrl 	= 'https://secure.paytm.in/oltp-web/processTransaction';
+			$this->refund 	= 'https://secure.paytm.in/oltp/HANDLER_INTERNAL/REFUND';
+			$this->txnStatus 	= 'https://secure.paytm.in/oltp/HANDLER_INTERNAL/TXNSTATUS';
+			$this->txnUrl 	= 'https://secure.paytm.in/oltp-web/processTransaction';
 		}
 		
 		$this->orderPrefix = Config::get('paytm.order_prefix');	
