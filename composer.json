@@ -2,7 +2,7 @@
     "name": "princealikhan/paytm-payment",
     "description": "Payment Integration with Paytm.",
     "license": "MIT",
-    "keywords": ["paytm", "laravel"],
+    "keywords": ["paytm", "laravel","payment","gateway","india"],
     "support": {
         "issues": "https://github.com/princealikhan/paytm-payment/issues",
         "source": "https://github.com/princealikhan/paytm-payment"
@@ -16,8 +16,8 @@
     "minimum-stability": "dev",
     "require": {
             "php": ">=5.5.9",
-            "illuminate/contracts": "5.0.*|5.1.*|5.2.*",
-            "illuminate/support": "5.0.*|5.1.*|5.2.*"
+            "illuminate/contracts": "5.0.*|5.1.*|5.2.*|5.3.*",
+            "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*"
         },
     "autoload": {
         "psr-4": {
