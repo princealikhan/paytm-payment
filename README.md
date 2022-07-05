@@ -1,4 +1,4 @@
-# Paytm Payment Library For Laravel 5 
+# Paytm Payment Library Fosr Laravel 5 
 
 ## Introduction
 
